@@ -75,9 +75,10 @@ nav.scrolled {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    height: 60px;
+    height: 40px;
     width: auto;
     transition: var(--transition-smooth);
+    display: block;
 }
 
 .logo-center:hover {
