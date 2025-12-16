@@ -140,14 +140,25 @@ nav.scrolled {
    ======================================== */
 
 .hero {
-    min-height: calc(100vh - 80px); /* subtract nav height (adjust 80px as needed) */
-    padding-top: 5rem;           /* extra space between nav and hero content */
+    min-height: calc(100vh - 80px);
+    padding-top: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--primary-cream) 0%, var(--soft-purple) 100%);
+    background: url('../assets/yogurt-hero.jpg') center/cover no-repeat;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
 }
 
 .hero-background {
@@ -189,21 +200,21 @@ nav.scrolled {
 }
 
 .hero h1 {
-    font-size: 5rem;
+    font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
     line-height: 1.1;
-    background: linear-gradient(135deg, var(--text-dark), var(--deep-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--pure-white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
-    font-size: 1.5rem;
-    color: var(--text-light);
+    font-size: 1.1rem;
+    color: var(--pure-white);
     margin-bottom: 3rem;
     font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    line-height: 1.6;
 }
 
 .cta-button {
