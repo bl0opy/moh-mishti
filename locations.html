@@ -6,6 +6,8 @@
     <meta name="description" content="Find Moh Mishti locations near you. Visit our artisanal yogurt shops for a premium tasting experience.">
     <title>Locations - Moh Mishti</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -29,89 +31,29 @@
     <section class="hero" style="height: 60vh;">
         <div class="hero-background"></div>
         <div class="hero-content">
-            <h1>Visit Us</h1>
-            <p>Experience luxury yogurt at our flagship locations</p>
+            <h1>Find Moh Mishti Near You</h1>
+            <p>Available at premium retailers and restaurants across Chicagoland</p>
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section style="background: var(--pure-white); padding: 4rem 5%;">
+        <div class="section-container">
+            <h2 class="section-title">Interactive Map</h2>
+            <p class="section-subtitle">Click on any marker to see location details</p>
+
+            <div id="map" style="height: 500px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); margin-top: 3rem;"></div>
         </div>
     </section>
 
     <!-- Locations Section -->
     <section>
         <div class="section-container">
-            <h2 class="section-title">Our Locations</h2>
-            <p class="section-subtitle">Each location offers a unique tasting experience with our full collection</p>
+            <h2 class="section-title">All Locations</h2>
+            <p class="section-subtitle">Visit us at these fine establishments</p>
 
-            <div class="locations-grid">
-                <!-- Downtown Location -->
-                <div class="location-card">
-                    <div class="location-image">🏙️</div>
-                    <div class="location-info">
-                        <h3>Downtown Flagship</h3>
-                        <p><strong>📍 Address:</strong> 123 Premium Boulevard, Suite 100<br>Downtown District</p>
-                        <p><strong>⏰ Hours:</strong> Mon-Sat: 8AM - 8PM<br>Sunday: 9AM - 6PM</p>
-                        <p><strong>📞 Phone:</strong> (555) 123-4567</p>
-                        <p style="margin-top: 1.5rem; color: var(--text-dark);">Our flagship store featuring the complete collection, a tasting bar, and exclusive limited editions.</p>
-                    </div>
-                </div>
-
-                <!-- Westside Location -->
-                <div class="location-card">
-                    <div class="location-image">🌊</div>
-                    <div class="location-info">
-                        <h3>Westside Waterfront</h3>
-                        <p><strong>📍 Address:</strong> 456 Marina Drive<br>Waterfront Plaza</p>
-                        <p><strong>⏰ Hours:</strong> Mon-Sat: 9AM - 7PM<br>Sunday: 10AM - 5PM</p>
-                        <p><strong>📞 Phone:</strong> (555) 234-5678</p>
-                        <p style="margin-top: 1.5rem; color: var(--text-dark);">Stunning waterfront location with outdoor seating and seasonal specialties inspired by coastal flavors.</p>
-                    </div>
-                </div>
-
-                <!-- Uptown Location -->
-                <div class="location-card">
-                    <div class="location-image">🌳</div>
-                    <div class="location-info">
-                        <h3>Uptown Garden</h3>
-                        <p><strong>📍 Address:</strong> 789 Park Avenue<br>Garden District</p>
-                        <p><strong>⏰ Hours:</strong> Mon-Sat: 8AM - 7PM<br>Sunday: 9AM - 6PM</p>
-                        <p><strong>📞 Phone:</strong> (555) 345-6789</p>
-                        <p style="margin-top: 1.5rem; color: var(--text-dark);">Nestled in the Garden District with a serene atmosphere, perfect for a peaceful yogurt experience.</p>
-                    </div>
-                </div>
-
-                <!-- Eastside Location -->
-                <div class="location-card">
-                    <div class="location-image">🏛️</div>
-                    <div class="location-info">
-                        <h3>Eastside Arts District</h3>
-                        <p><strong>📍 Address:</strong> 321 Gallery Street<br>Arts Quarter</p>
-                        <p><strong>⏰ Hours:</strong> Mon-Sat: 10AM - 9PM<br>Sunday: 10AM - 7PM</p>
-                        <p><strong>📞 Phone:</strong> (555) 456-7890</p>
-                        <p style="margin-top: 1.5rem; color: var(--text-dark);">Located in the vibrant Arts District, featuring rotating art installations and artist collaborations.</p>
-                    </div>
-                </div>
-
-                <!-- Northside Location -->
-                <div class="location-card">
-                    <div class="location-image">🏔️</div>
-                    <div class="location-info">
-                        <h3>Northside Heights</h3>
-                        <p><strong>📍 Address:</strong> 654 Summit Road<br>Heights District</p>
-                        <p><strong>⏰ Hours:</strong> Mon-Sat: 8AM - 8PM<br>Sunday: 9AM - 6PM</p>
-                        <p><strong>📞 Phone:</strong> (555) 567-8901</p>
-                        <p style="margin-top: 1.5rem; color: var(--text-dark);">Panoramic city views and a cozy mountain-lodge atmosphere make this location truly special.</p>
-                    </div>
-                </div>
-
-                <!-- Southside Location -->
-                <div class="location-card">
-                    <div class="location-image">☀️</div>
-                    <div class="location-info">
-                        <h3>Southside Market</h3>
-                        <p><strong>📍 Address:</strong> 987 Farmers Market Lane<br>Market District</p>
-                        <p><strong>⏰ Hours:</strong> Mon-Sat: 7AM - 8PM<br>Sunday: 8AM - 6PM</p>
-                        <p><strong>📞 Phone:</strong> (555) 678-9012</p>
-                        <p style="margin-top: 1.5rem; color: var(--text-dark);">Adjacent to the famous Farmers Market, offering farm-fresh ingredients and daily samples.</p>
-                    </div>
-                </div>
+            <div class="locations-grid" id="locations-list">
+                <!-- Locations will be dynamically loaded -->
             </div>
         </div>
     </section>
@@ -200,5 +142,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/locations.js"></script>
 </body>
 </html>
