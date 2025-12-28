@@ -135,6 +135,27 @@ nav.scrolled {
     color: var(--accent-gold);
 }
 
+/* Hamburger toggle (desktop hidden) */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    padding: 0.25rem;
+    cursor: pointer;
+    align-items: center;
+    flex-direction: column; /* stack bars vertically */
+    gap: 6px;
+}
+
+.nav-toggle-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--pure-white);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 /* ========================================
    Hero Section
    ======================================== */
@@ -770,6 +791,43 @@ footer {
     .logo-center {
         display: none;
     }
+
+    /* Mobile nav: show hamburger and convert nav to dropdown */
+    .nav-toggle { display: inline-flex; }
+    .nav-container { gap: 0.75rem; }
+
+    /* hide inline nav links by default on mobile (become dropdown) */
+    #primary-nav { 
+        display: none; 
+    }
+
+    /* dropdown when open */
+    #primary-nav.open {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        background: var(--pure-white);
+        color: var(--text-dark);
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 5%;
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+        z-index: 1200;
+    }
+
+    
+
+    #primary-nav li { list-style: none; margin: 0; padding: 0.25rem 0; }
+    #primary-nav a { display: block; color: var(--text-dark); text-decoration: none; padding: 0.75rem 0; font-weight: 600; }
+
+    /* hamburger animation */
+    .nav-toggle.open .nav-toggle-bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .nav-toggle.open .nav-toggle-bar:nth-child(2) { opacity: 0; }
+    .nav-toggle.open .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 }
 
 /* ========================================
