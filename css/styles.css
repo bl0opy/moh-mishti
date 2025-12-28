@@ -69,7 +69,7 @@ nav.scrolled {
 }
 
 .logo-left:hover {
-    transform: scale(1.05);
+    transform: scale(1.2);
 }
 
 .logo-center {
@@ -83,7 +83,7 @@ nav.scrolled {
 }
 
 .logo-center:hover {
-    transform: translateX(-50%) translateY(-8px) scale(1.05);
+    transform: translateX(-50%) translateY(-20px) scale(1.05);
 }
 
 .logo {
@@ -186,6 +186,7 @@ nav.scrolled {
     padding: 2rem;
     opacity: 0;
     animation: fadeInUp 1.2s ease forwards 0.3s;
+    margin-top: 4rem; /* move downward to taste */
 }
 
 @keyframes fadeInUp {
@@ -685,6 +686,11 @@ footer {
     .cta-button {
         padding: 1rem 2rem;
         font-size: 1rem;
+    }
+
+    /* Hide centered logo on small screens to avoid overlap */
+    .logo-center {
+        display: none;
     }
 }
 
