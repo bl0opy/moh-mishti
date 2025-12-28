@@ -260,7 +260,7 @@ nav.scrolled {
 section {
     padding: 8rem 5%;
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(-10px);
     transition: var(--transition-smooth);
 }
 
@@ -275,6 +275,7 @@ section.visible {
 }
 
 .section-title {
+    margin-top: 2rem;
     font-size: 3.5rem;
     font-weight: 700;
     text-align: center;
@@ -450,6 +451,7 @@ section.visible {
    ======================================== */
 
 .story-section {
+    margin-top: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;

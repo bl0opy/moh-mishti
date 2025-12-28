@@ -27,7 +27,7 @@ function initMap() {
                     <div style="min-width: 200px;">
                         <h3 style="margin: 0 0 0.5rem 0; color: #2C2C2C; font-size: 1.1rem;">${loc.name}</h3>
                         <p style="margin: 0; color: #666; font-size: 0.9rem;">${loc.address}</p>
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=${loc.lat},${loc.lng}"
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=${loc.name}"
                            target="_blank"
                            style="display: inline-block; margin-top: 0.5rem; color: #D4AF37; text-decoration: none; font-weight: 600;">
                            Get Directions →
