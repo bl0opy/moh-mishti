@@ -16,7 +16,7 @@ function initMap() {
     }).addTo(map);
 
     // Load location data
-    fetch('locations.json')
+    fetch('/locations.json')
         .then(res => res.json())
         .then(locations => {
             // Add markers to map
@@ -80,11 +80,16 @@ function renderLocationCards(locations) {
         const card = document.createElement('div');
         card.className = 'location-card';
 
-        // If the location object provides an `image` property, use it as the
-        // background image for the image area. Otherwise fall back to the
-        // gradient + emoji placeholder.
-        const imageHtml = location.image
-            ? `<div class="location-image" style="background-image: url('${location.image}');"></div>`
+        // If the location object provides an `image` property, normalize it to
+        // a root-relative URL so images load correctly regardless of the page
+        // folder (e.g. /assets/foo.jpg). Otherwise fall back to the gradient
+        // + emoji placeholder.
+        const imageUrl = location.image
+            ? (location.image.startsWith('/') || location.image.startsWith('http') ? location.image : '/' + location.image)
+            : null;
+
+        const imageHtml = imageUrl
+            ? `<div class="location-image" style="background-image: url('${imageUrl}');"></div>`
             : `<div class="location-image" style="background: linear-gradient(135deg, #E6D5F5, #D4AF37); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">📍</div>`;
 
         card.innerHTML = `
